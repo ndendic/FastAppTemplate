@@ -6,11 +6,11 @@ def hero():
             Div(
                 Div(
                     H1(
-                        "Bliz SaaS Boilerplate",
+                        "Bliz Boilerplate",
                         cls="text-4xl font-bold tracking-tight sm:text-6xl",
                     ),
                     P(
-                        "Launch your SaaS project in minutes, not months. Everything you need to start building your next great idea.",
+                        "Launch your project in minutes, not months. Everything you need to start building your next great idea.",
                         cls=TextFont.muted_lg + " mt-6",
                     ),
                     Form(

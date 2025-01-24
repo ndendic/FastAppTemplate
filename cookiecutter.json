@@ -1,5 +1,5 @@
 {
-    "project_name": "MySaaS",
+    "project_name": "MyApp",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "project_description": "A modern Application built with FastHTML",
     "version": "0.1.0",

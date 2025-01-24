@@ -16,7 +16,7 @@ FastHTML Boilerplate Creator is a powerful tool that allows users to quickly gen
 1. First, create your project using cookiecutter:
    ```bash
    pip install cookiecutter
-   cookiecutter gh:ndendic/cc-fastapp
+   cookiecutter gh:ndendic/FastAppTemplate
    ```
 
 2. We recommend using `uv` for faster Python package management. Install it if you haven't already:
