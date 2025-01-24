@@ -10,7 +10,6 @@ def MobileDrawer():
         ("Home", "/"),
         ("About", "/about"),
         ("Pricing", "/pricing"),
-        ("Contact", "/contact"),
     ]
 
     return Div(
@@ -82,7 +81,6 @@ def Navbar():
         ("Home", "/"),
         ("About", "/about"),
         ("Pricing", "/pricing"),
-        ("Contact", "/contact"),
     ]
 
     return Header(

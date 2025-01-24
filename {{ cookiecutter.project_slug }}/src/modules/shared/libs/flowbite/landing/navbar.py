@@ -31,7 +31,6 @@ def MobileMenu():
             Div(
                 A("Home", href="/", cls="block py-2"),
                 A("About", href="/about", cls="block py-2"),
-                A("Contact", href="/contact", cls="block py-2"),
                 
                 cls="flex flex-col h-[calc(100vh-12rem)]"
             ),
@@ -65,7 +64,6 @@ def Navbar():
                     Nav(
                         A("Home", href="/", cls="hover:underline"),
                         A("About", href="/about", cls="hover:underline"),
-                        A("Contact", href="/contact", cls="hover:underline"),
                         cls="hidden md:flex items-center space-x-6"
                     ),               
                     # Auth buttons and toggles

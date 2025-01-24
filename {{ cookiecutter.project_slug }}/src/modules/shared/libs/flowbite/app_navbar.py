@@ -9,16 +9,16 @@ def app_navbar():
             Div(
                 Div(
                     A(
-                        Img(
-                            src="https://flowbite.s3.amazonaws.com/logo.svg",
-                            alt="Flowbite Logo",
-                            cls="mr-3 h-8",
-                        ),
+                        # Img(
+                        #     src="https://flowbite.s3.amazonaws.com/logo.svg",
+                        #     alt="{{ cookiecutter.project_name }} Logo",
+                        #     cls="mr-3 h-8",
+                        # ),
                         Span(
                             config.app_name,
                             cls="self-center text-2xl font-semibold whitespace-nowrap dark:text-white",
                         ),
-                        href="https://flowbite.com",
+                        href="https://fastht.ml",
                         cls="flex mr-6",
                     ),
                     cls="flex justify-start items-center",

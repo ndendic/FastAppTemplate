@@ -6,20 +6,7 @@ from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
 from modules.auth.models import Priviledge, Role, RolePriviledge, User
-{% if cookiecutter.include_blog == "y" %}
-from modules.blog.models import BlogPost
-{% endif %}
-{% if cookiecutter.include_contact_form == "y" %}
-from modules.contact.models import Contact
-{% endif %}
-{% if cookiecutter.include_subscriptions == "y" %}
-from modules.subscriptions.models import (
-    Product,
-    Subscription,
-    SubscriptionInvoice,
-    Variant,
-)
-{% endif %}
+
 from modules.shared.models import BaseTable
 
 # this is the Alembic Config object, which provides

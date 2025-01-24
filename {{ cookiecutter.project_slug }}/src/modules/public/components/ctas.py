@@ -181,7 +181,7 @@ def CTA():
                     cls="mb-4 text-4xl tracking-tight font-extrabold",
                 ),
                 P(
-                    "Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.",
+                    "{{ cookiecutter.project_name }} helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.",
                     cls="mb-6 font-light md:text-lg",
                 ),
                 Button(
@@ -204,38 +204,6 @@ def CTA():
                 cls="mt-4 md:mt-0",
             ),
             cls="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6",
-        ),
-    )
-
-
-def simple_cta():
-    return Div(
-        Div(
-            Div(
-                H2(
-                    "Let's find more that brings us together.",
-                    cls="mb-4 text-4xl font-bold",
-                ),
-                P(
-                    f"{config.app_name} helps you connect with friends, family and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups, Watch and Marketplace.",
-                    cls=TextT.muted + "mb-8 font-light",
-                ),
-                Div(
-                    Button(
-                        "Get Started",
-                        cls=ButtonT.primary,
-                        onclick="window.location.href='/pricing'",
-                    ),
-                    Button(
-                        "Contact Us",
-                        cls=ButtonT.secondary,
-                        onclick="window.location.href='/contact'",
-                    ),
-                    cls="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4",
-                ),
-                cls="max-w-screen-md",
-            ),
-            cls="px-4 mx-auto max-w-screen-xl lg:px-6",
         ),
     )
 

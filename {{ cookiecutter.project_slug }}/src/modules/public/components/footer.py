@@ -9,15 +9,6 @@ def footer():
     Div(
         Div(
             Div(
-                A(
-                    Img(src='https://flowbite.com/docs/images/logo.svg', alt='FlowBite Logo', cls='mr-3 h-8'),
-                    Span(config.app_name, cls='self-center text-2xl font-semibold whitespace-nowrap'),
-                    href='https://flowbite.com',
-                    cls='flex items-center'
-                ),
-                cls='mb-6 md:mb-0'
-            ),
-            Div(
                 Div(
                     H2('Resources', cls='mb-6 text-sm font-semibold uppercase'),
                     Ul(
@@ -35,11 +26,11 @@ def footer():
                     H2('Follow us', cls='mb-6 text-sm font-semibold uppercase'),
                     Ul(
                         Li(
-                            A('Github', href='https://github.com/themesberg/flowbite', cls='hover:underline'),
+                            A('Github', href='https://github.com/ndendic', cls='hover:underline'),
                             cls='mb-4'
                         ),
                         Li(
-                            A('Discord', href='https://discord.gg/4eeurUVvTy', cls='hover:underline')
+                            A('LinkedIn', href='https://www.linkedin.com/in/ndendic', cls='hover:underline')
                         ),
                         cls=TextT.muted
                     )
@@ -64,8 +55,8 @@ def footer():
         Hr(cls='my-6 sm:mx-auto lg:my-8'),
         Div(
             Span(
-                '© 2024 ',
-                A(config.app_name, href='https://flowbite.com', cls='hover:underline'),
+                '© 2025 ',
+                A(config.app_name, href='https://fastht.ml/', cls='hover:underline'),
                 '. All Rights Reserved.',
                 cls='text-sm sm:text-center'
             ),

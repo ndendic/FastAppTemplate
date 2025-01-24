@@ -8,7 +8,7 @@ from supabase import AClient, create_async_client
 from modules.auth.models import User
 from modules.shared.toaster import add_custom_toast
 
-logfire.configure()
+logfire.configure(send_to_logfire='if-token-present')
 
 
 class SupabaseAuth:

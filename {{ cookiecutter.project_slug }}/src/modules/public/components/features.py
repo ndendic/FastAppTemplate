@@ -44,7 +44,7 @@ def FeaturesHeading():
                 cls="mb-4 text-4xl tracking-tight font-extrabold",
             ),
             P(
-                "Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.",
+                "Here at {{ cookiecutter.project_name }} we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.",
                 cls=TextFont.muted_lg,
             ),
             cls="max-w-screen-md mb-8 lg:mb-16",

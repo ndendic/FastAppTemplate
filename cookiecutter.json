@@ -1,7 +1,7 @@
 {
     "project_name": "MySaaS",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
-    "project_description": "A modern SaaS application built with FastHTML",
+    "project_description": "A modern Application built with FastHTML",
     "version": "0.1.0",
     "database_backend": [
         "sqlmodel",
@@ -24,16 +24,6 @@
     "google_oauth_secret": "your-google-oauth-secret",
     "github_oauth_id": "your-github-oauth-id",
     "github_oauth_secret": "your-github-oauth-secret",
-    "lemonsqeezy_api_key": "your-lemonsqeezy-api-key",
-    "lemonsqeezy_store_id": "your-lemonsqeezy-store-id",
-    "lemonsqeezy_webhook_secret": "your-lemonsqeezy-webhook-secret",
-    "notion_key": "your-notion-key",
-    "notion_database_id": "your-notion-database-id",
-    "include_subscriptions": "y",
-    "include_blog": "y",
-    "include_docs": "y",
-    "include_contact_form": "y",
-    "include_playground": "y",
     "_copy_without_render": [
         "src/cli.py",
         "scripts/create_page.py",

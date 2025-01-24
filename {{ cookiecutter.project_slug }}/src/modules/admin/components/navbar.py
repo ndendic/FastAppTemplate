@@ -90,10 +90,7 @@ def SidebarToggle():
 nav_items = [
     ("Home", "/"),
     ("Dashboard", "/dashboard"),
-    ("Blog", "/blog"),
-    ("Documentation", "/docs"),
     ("Playground", "/playground"),
-    ("Contact", "/contact"),
 ]
 def TopNav(request):
     return NavBarContainer(

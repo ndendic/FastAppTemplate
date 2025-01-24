@@ -8,11 +8,11 @@ def auth_info_section():
         Div(
             Div(
                 A(
-                    Img(
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg",
-                        alt="logo",
-                        cls="w-8 h-8 mr-2",
-                    ),
+                    # Img(
+                    #     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg",
+                    #     alt="logo",
+                    #     cls="w-8 h-8 mr-2",
+                    # ),
                     config.app_name,
                     href="/",
                     cls="inline-flex items-center mb-6 text-2xl font-semibold text-gray-900 lg:mb-10 dark:text-white",
@@ -120,11 +120,11 @@ def auth_info_section():
         ),
         Div(
             A(
-                Img(
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg",
-                    alt="logo",
-                    cls="w-8 h-8 mr-2",
-                ),
+                # Img(
+                #     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg",
+                #     alt="logo",
+                #     cls="w-8 h-8 mr-2",
+                # ),
                 config.app_name,
                 href="/",
                 cls="inline-flex items-center text-2xl font-semibold text-gray-900 lg:hidden dark:text-white",

@@ -12,7 +12,7 @@ from fasthtml.oauth import GoogleAppClient
 from modules.auth.models import User
 from modules.shared.toaster import add_custom_toast
 
-logfire.configure()
+logfire.configure(send_to_logfire='if-token-present')
 
 
 class FastHTMLAuth:

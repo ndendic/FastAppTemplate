@@ -33,10 +33,7 @@ playlists_data = [("library", "Recently Added"), ("library", "Recently Played")]
 nav_items = [
     ("home", "Home", "/"),
     ("layout-dashboard", "Dashboard", "/dashboard"),
-    ("newspaper", "Blog", "/blog"),
-    ("book-open", "Documentation", "/docs"),
     ("beaker", "Playground", "/playground"),
-    ("mail", "Contact", "/contact"),
     ("user", "Profile", "/user/profile"),
     ("log-out", "Logout", "/auth/logout"),
 ]

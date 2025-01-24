@@ -8,13 +8,6 @@ class Settings(BaseSettings):
     app_version: str = "{{ cookiecutter.version }}"
     app_description: str = "{{ cookiecutter.project_description }}"
     
-    # Feature Flags
-    has_subscriptions: bool = {{ cookiecutter.include_subscriptions == 'y' }}
-    has_blog: bool = {{ cookiecutter.include_blog == 'y' }}
-    has_docs: bool = {{ cookiecutter.include_docs == 'y' }}
-    has_contact_form: bool = {{ cookiecutter.include_contact_form == 'y' }}
-    has_playground: bool = {{ cookiecutter.include_playground == 'y' }}
-    
     # Database Settings
     database_url: str = "{{ cookiecutter.database_url }}"
     db_service: str = "{{ cookiecutter.database_backend }}"
@@ -39,15 +32,6 @@ class Settings(BaseSettings):
     google_oauth_secret: str | None = "{{ cookiecutter.google_oauth_secret }}"
     github_oauth_id: str | None = "{{ cookiecutter.github_oauth_id }}"
     github_oauth_secret: str | None = "{{ cookiecutter.github_oauth_secret }}"
-    
-    # Payment Settings
-    lemonsqeezy_api_key: str | None = "{{ cookiecutter.lemonsqeezy_api_key }}"
-    lemonsqeezy_store_id: str | None = "{{ cookiecutter.lemonsqeezy_store_id }}"
-    lemonsqeezy_webhook_secret: str | None = "{{ cookiecutter.lemonsqeezy_webhook_secret }}"
-    
-    # Integration Settings
-    notion_key: str | None = "{{ cookiecutter.notion_key }}"
-    notion_database_id: str | None = "{{ cookiecutter.notion_database_id }}"
 
     @property
     def is_using_supabase(self) -> bool:

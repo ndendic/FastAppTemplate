@@ -9,9 +9,9 @@ def footer():
         Div(
             Div(
                 A(
-                    Img(src='https://flowbite.com/docs/images/logo.svg', alt='FlowBite Logo', cls='mr-3 h-8'),
+                    # Img(src='https://flowbite.com/docs/images/logo.svg', alt='FlowBite Logo', cls='mr-3 h-8'),
                     Span(config.app_name, cls='self-center text-2xl font-semibold whitespace-nowrap dark:text-white'),
-                    href='https://flowbite.com',
+                    href='https://fastht.ml',
                     cls='flex items-center'
                 ),
                 cls='mb-6 md:mb-0'
@@ -64,7 +64,7 @@ def footer():
         Div(
             Span(
                 '© 2022',
-                A(config.app_name, href='https://flowbite.com', cls='hover:underline'),
+                A(config.app_name, href='https://{{ cookiecutter.project_name }}.com', cls='hover:underline'),
                 '. All Rights Reserved.',
                 cls='text-sm text-gray-500 sm:text-center dark:text-gray-400'
             ),

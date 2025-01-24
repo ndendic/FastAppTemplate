@@ -4,7 +4,7 @@ from typing import List
 from fasthtml.core import FastHTML, APIRouter
 import logfire
 
-logfire.configure()
+logfire.configure(send_to_logfire='if-token-present')
 
 def collect_rt_instances(package_name: str = "modules") -> List[APIRouter]:
     rt_list = []

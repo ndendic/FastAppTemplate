@@ -61,7 +61,6 @@ def hero():
                 Div(
                     Img(
                         src="/content/site/vecteezy_rocket-launch-in-space-flat-illustration_29453025.svg",
-                        # src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mobile-app.svg",
                         alt="phone illustration",
                     ),
                     cls="hidden lg:mt-0 lg:col-span-5 xl:col-span-4 lg:flex",

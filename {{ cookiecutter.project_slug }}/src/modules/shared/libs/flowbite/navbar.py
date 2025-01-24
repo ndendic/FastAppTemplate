@@ -6,19 +6,19 @@ config = Settings()
 def Navbar():
     return Nav(
         Div(
-            A(
-                Img(
-                    src="https://flowbite.com/docs/images/logo.svg",
-                    alt="Flowbite Logo",
-                    cls="h-8",
-                ),
-                Span(
-                    config.app_name,
-                    cls="self-center text-2xl font-semibold whitespace-nowrap dark:text-white",
-                ),
-                href="https://flowbite.com/",
-                cls="flex items-center space-x-3 rtl:space-x-reverse",
-            ),
+            # A(
+            #     Img(
+            #         src="https://flowbite.com/docs/images/logo.svg",
+            #         alt="Flowbite Logo",
+            #         cls="h-8",
+            #     ),
+            #     Span(
+            #         config.app_name,
+            #         cls="self-center text-2xl font-semibold whitespace-nowrap dark:text-white",
+            #     ),
+            #     href="https://flowbite.com/",
+            #     cls="flex items-center space-x-3 rtl:space-x-reverse",
+            # ),
             Div(
                 A(
                     Button(

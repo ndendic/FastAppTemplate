@@ -2,7 +2,7 @@ import os
 import logfire
 from config import Settings
 
-logfire.configure()
+logfire.configure(send_to_logfire='if-token-present')
 from modules.shared.db.sqlmodel import SQLModelDB
 from modules.shared.db.supabase import SupabaseDB
 

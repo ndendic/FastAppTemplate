@@ -10,7 +10,7 @@ from modules.shared.toaster import add_custom_toast
 
 import logfire
 
-logfire.configure()
+logfire.configure(send_to_logfire='if-token-present')
 
 auth_service = AuthService()
 

@@ -4,7 +4,7 @@ from config import Settings
 from modules.auth.services.fasthtml_auth import FastHTMLAuth
 from modules.auth.services.supabase_auth import SupabaseAuth
 
-logfire.configure()
+logfire.configure(send_to_logfire='if-token-present')
 
 
 class AuthService:
