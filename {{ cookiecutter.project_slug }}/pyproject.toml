@@ -1,7 +1,7 @@
 [project]
-name = "fasthtml"
-version = "0.1.0"
-description = "Add your description here"
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.project_description }}"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -30,7 +30,7 @@ dependencies = [
 ]
 
 [project.scripts]
-saas = "cli:app"
+app = "cli:app"
 
 [tool.pytest.ini_options]
 pythonpath = "src"

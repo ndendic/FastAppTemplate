@@ -1,11 +1,11 @@
 from fasthtml.common import *
 from fasthtml.core import APIRouter
-from modules.shared.templates import public_template
+from modules.shared.templates import page_template
 
 rt = APIRouter()
 
 @rt("/unauthorized")
-@public_template("Unauthorized")
+@page_template("Unauthorized")
 def page(request):
     return Div(cls="min-h-[50vh] flex items-center justify-center")(
         Div(cls="text-center space-y-4")(
