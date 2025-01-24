@@ -1,4 +1,4 @@
-# 🚀 FastHTML SaaS Boilerplate Creator
+# 🚀 FastHTML Boilerplate Creator
 
 FastHTML Boilerplate Creator is a powerful tool that allows users to quickly generate customized SaaS boilerplate projects using FastHTML. This service streamlines the process of setting up a new application by providing a user-friendly interface to configure various aspects of the project.
 
