@@ -1,0 +1,44 @@
+
+
+.uk-theme-emerald{
+  --background: 86 19% 95%;
+  --foreground: 86 5% 1%;
+  --card: 86 19% 90%;
+  --card-foreground: 86 5% 10%;
+  --popover: 86 19% 95%;
+  --popover-foreground: 86 95% 1%;
+  --primary: 86 100% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 86 19% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 48 19% 85%;
+  --muted-foreground: 86 5% 35%;
+  --accent: 48 19% 80%;
+  --accent-foreground: 86 5% 10%;
+  --destructive: 0 50% 30%;
+  --destructive-foreground: 86 5% 90%;
+  --border: 86 20% 50%;
+  --input: 86 20% 18%;
+  --ring: 86 100% 36%;
+}
+.dark.uk-theme-emerald  {
+  --background: 86 19% 5%;
+  --foreground: 86 5% 90%;
+  --card: 86 19% 1%;
+  --card-foreground: 86 5% 90%;
+  --popover: 86 19% 5%;
+  --popover-foreground: 86 5% 90%;
+  --primary: 86 100% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 86 19% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 48 19% 15%;
+  --muted-foreground: 86 5% 60%;
+  --accent: 48 19% 15%;
+  --accent-foreground: 86 5% 90%;
+  --destructive: 0 50% 30%;
+  --destructive-foreground: 86 5% 90%;
+  --border: 86 20% 18%;
+  --input: 86 20% 18%;
+  --ring: 86 100% 36%;
+}

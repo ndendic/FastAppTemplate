@@ -1,0 +1,41 @@
+[project]
+name = "fasthtml"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.13.3",
+    "apswutils>=0.0.2",
+    "bcrypt>=4.2.0",
+    "debugpy>=1.8.9",
+    "logfire[sqlalchemy,starlette]>=2.11.1",
+    "lucide-fasthtml>=0.0.9",
+    "lxml>=5.3.0",
+    "markdown2>=2.5.1",
+    "mistletoe>=1.4.0",
+    "monsterui>=0.0.9",
+    "notion-client>=2.2.1",
+    "psycopg2-binary>=2.9.10",
+    "pydantic-settings>=2.7.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest>=8.3.3",
+    "python-fasthtml>=0.11.0",
+    "resend>=2.4.0",
+    "ruff>=0.7.3",
+    "sqlmodel>=0.0.22",
+    "stripe>=11.3.0",
+    "supabase>=2.9.1",
+    "typer[all]>=0.15.1",
+]
+
+[project.scripts]
+saas = "cli:app"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+
+[dependency-groups]
+dev = [
+    "typer[all]>=0.15.1",
+]

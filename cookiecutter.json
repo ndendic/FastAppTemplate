@@ -1,0 +1,43 @@
+{
+    "project_name": "MySaaS",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "project_description": "A modern SaaS application built with FastHTML",
+    "version": "0.1.0",
+    "database_backend": [
+        "sqlmodel",
+        "supabase"
+    ],
+    "auth_provider": [
+        "fasthtml",
+        "supabase"
+    ],
+    "database_url": "sqlite:///./{{ cookiecutter.project_slug }}.sqlite",
+    "supabase_url": "https://{{ cookiecutter.project_slug }}.supabase.co",
+    "supabase_key": "your-supabase-anon-key",
+    "supabase_service_key": "your-supabase-service-key",
+    "smtp_server": "smtp.resend.com",
+    "smtp_port": "465",
+    "smtp_username": "resend",
+    "smtp_password": "re_xxxx",
+    "resend_api_key": "re_xxxx",
+    "google_oauth_id": "your-google-oauth-id",
+    "google_oauth_secret": "your-google-oauth-secret",
+    "github_oauth_id": "your-github-oauth-id",
+    "github_oauth_secret": "your-github-oauth-secret",
+    "lemonsqeezy_api_key": "your-lemonsqeezy-api-key",
+    "lemonsqeezy_store_id": "your-lemonsqeezy-store-id",
+    "lemonsqeezy_webhook_secret": "your-lemonsqeezy-webhook-secret",
+    "notion_key": "your-notion-key",
+    "notion_database_id": "your-notion-database-id",
+    "include_subscriptions": "y",
+    "include_blog": "y",
+    "include_docs": "y",
+    "include_contact_form": "y",
+    "include_playground": "y",
+    "_copy_without_render": [
+        "src/cli.py",
+        "scripts/create_page.py",
+        ".llms/**",
+        "*.txt"
+    ]
+}

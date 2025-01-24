@@ -1,0 +1,66 @@
+# FastSaaS LLM Development Instructions
+
+When helping develop FastSaaS features, consider the following:
+
+1. Existing Functionality
+- Authentication system with User, Role, and Privilege models
+- LemonSqueezy integration for subscriptions
+- Product and variant management
+- Full subscription lifecycle handling
+- Invoice tracking
+
+2. Code Organization
+- Models in supa_saas/app/models/
+- Services in supa_saas/app/services/
+- Pages in supa_saas/app/pages/
+- Components in supa_saas/app/components/
+
+3. Technology Stack
+- FastHTML for server-side rendering
+- HTMX for dynamic interactions
+- SQLModel/SQLAlchemy for database
+- Alembic for migrations
+- Tailwind CSS for styling
+
+4. Development Guidelines
+- Follow existing code patterns
+- Use type hints
+- Add docstrings for new functions
+- Update migrations when modifying models
+- Test new features
+- Document API changes
+
+5. Common Tasks
+- Adding new models: Extend BaseTable
+- Creating new pages: Use FastHTML routing
+- Adding components: Follow component patterns
+- Database changes: Create Alembic migrations
+- API endpoints: Use FastHTML routing
+
+6. Security Considerations
+- Validate all inputs
+- Use CSRF protection
+- Implement rate limiting
+- Follow security headers
+- Secure session handling
+
+7. Performance Guidelines
+- Optimize database queries
+- Use caching when appropriate
+- Minimize JavaScript
+- Follow HTMX best practices
+- Consider lazy loading
+
+8. Testing
+- Write unit tests
+- Test database migrations
+- Verify authentication flows
+- Check subscription handling
+- Validate API endpoints
+
+9. Documentation
+- Update API documentation
+- Add usage examples
+- Document configuration options
+- Include security notes
+- Provide deployment instructions

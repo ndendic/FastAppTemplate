@@ -1,0 +1,261 @@
+# FastHTML + MonsterUI Development Guidelines
+
+You are an expert in Python web development, FastHTML framework, and MonsterUI component library. If you are not sure about something, use the documentation under .lls/llm_instructions.txtas a reference.
+
+## Core Principles
+
+### FastHTML Architecture
+- Use FastHTML's built-in features and tools wherever possible
+- Structure applications using FastHTML's routing system with clear URL patterns
+- Leverage FastHTML's HTMX integration for dynamic interactions
+- Follow Python's PEP 8 style guide for code formatting
+- Use descriptive variable and function names (lowercase with underscores)
+- Keep route handlers focused and concise
+- Use type hints for better code clarity and IDE support
+
+### MonsterUI Integration
+- MonsterUI is incompatible with Pico CSS - never mix them
+- Use MonsterUI's Tailwind-based components for consistent styling
+- Follow MonsterUI's component naming conventions
+- Leverage MonsterUI's built-in themes for consistent look and feel
+
+## Code Organization
+
+### Project Structure
+```
+my_app/
+├── assets/
+│   └── css/
+│       └── custom.css
+├── src/
+│   ├── modules/
+│   │    └── blog/
+│   │       ├── components/
+│   │       │   ├── blog_card.py
+│   │       │   └── blog_list.py
+│   │       ├── models.py
+│   │       ├── routes.py
+│   │       ├── views.py
+│   │       └── __init__.py
+│   ├── shared/
+│   │   └── models.py
+│   │   └── __init__.py
+│   ├── main.py
+│   ├── config.py
+│   └── __init__.py
+├── scripts/
+└── tests/
+
+
+```
+
+### Route Handler Pattern
+```python
+@rt("/path")
+def get(request):
+    """Handle GET requests with clear documentation."""
+    return Titled("Page Title", 
+        Container(
+            # Group related UI components
+            Card(...),
+            Form(...)
+        )
+    )
+```
+
+## Component Guidelines
+
+### MonsterUI Components
+- Use semantic HTML structure with MonsterUI components
+- Group related components using Container, Section, or Card
+- Follow MonsterUI's spacing and layout conventions
+- Use MonsterUI's built-in responsive utilities
+
+### Example Component Structure
+```python
+def page_layout(*content):
+    return Container(
+        NavBarContainer(...),
+        Main(
+            *content,
+            cls="space-y-4"
+        ),
+        Footer(...)
+    )
+```
+
+## Best Practices
+
+### Forms and Data Handling
+```python
+# Define data models using dataclasses
+@dataclass
+class UserData:
+    name: str
+    email: str
+
+# Create form handlers
+@rt("/users")
+def post(data: UserData, session):
+    # Validate and process form data
+    return RedirectResponse("/success")
+```
+
+### HTMX Integration
+- Use HTMX attributes for dynamic interactions
+- Follow HTMX's out-of-band swap patterns
+- Keep HTMX endpoints focused on returning partial content
+
+### Example HTMX Pattern
+```python
+@rt("/items")
+def get():
+    return Form(
+        Input(id="search", name="q"),
+        hx_get="/search",
+        hx_trigger="keyup changed delay:500ms",
+        hx_target="#results"
+    )
+
+@rt("/search")
+def get(q: str):
+    results = search_items(q)
+    return Div(
+        *[ItemCard(item) for item in results],
+        id="results"
+    )
+```
+
+## Error Handling
+
+### Exception Pattern
+```python
+def error_handler(request, exc):
+    return Titled("Error",
+        Card(
+            CardTitle("An error occurred"),
+            CardBody(str(exc)),
+            cls=CardT.danger
+        )
+    )
+
+app = FastHTML(
+    exception_handlers={
+        404: error_handler,
+        500: error_handler
+    }
+)
+```
+
+## Security Considerations
+
+### Authentication
+- Use FastHTML's session management
+- Implement proper CSRF protection
+- Validate all user input
+- Use HTTPS in production
+
+### Example Auth Pattern
+```python
+def auth_required(handler):
+    async def wrapped(request, *args, **kwargs):
+        if not request.session.get("user"):
+            return RedirectResponse("/login")
+        return await handler(request, *args, **kwargs)
+    return wrapped
+
+@rt("/protected")
+@auth_required
+def get(request):
+    return Titled("Protected Page", ...)
+```
+
+## Performance
+
+### Optimization Guidelines
+- Use FastHTML's background tasks for heavy operations
+- Leverage browser caching where appropriate
+- Minimize database queries
+- Use efficient HTMX patterns to reduce full page loads
+
+### Example Background Task
+```python
+@rt("/process")
+async def post(data: ProcessData):
+    task = BackgroundTask(process_data, data)
+    return JSONResponse(
+        {"status": "processing"},
+        background=task
+    )
+```
+
+## Testing
+
+### Test Pattern
+```python
+def test_endpoint():
+    with TestClient(app) as client:
+        response = client.get("/")
+        assert response.status_code == 200
+        assert "Expected Content" in response.text
+```
+
+## Database Models
+
+### Model Structure
+- All database models MUST inherit from `BaseTable` in `shared.models`
+- Never use raw SQLModel for table definitions
+- Always include proper type hints and field definitions
+
+### Required Metadata
+- Define `display_name` ClassVar for admin interface
+- Set appropriate `sidebar_icon` for admin menu
+- Specify `table_view_fields` for list views
+- Include `detail_page_fields` for form views
+- Group fields logically using `field_groups` when applicable
+
+### Field Definitions
+- Use UUID primary keys from BaseTable
+- Leverage BaseTable's created_at and updated_at fields
+- Define proper SQLAlchemy column types (e.g., Text for long content)
+- Add schema_extra for UI hints and icons
+- Include proper indexing on searchable fields
+
+### Relationships
+- Use UUID for foreign keys
+- Define clear back_populates for relationships
+- Implement proper __str__ methods for admin display
+- Create junction tables for many-to-many relationships
+
+Example Model Structure:
+```python
+class MyModel(BaseTable, table=True):
+    name: str = Field(index=True)
+    description: str = Field(sa_type=sqlalchemy.Text)
+    
+    # Relationships
+    parent_id: Optional[UUID] = Field(foreign_key="parent.id")
+    parent: Optional["Parent"] = Relationship(back_populates="children")
+    
+    # Metadata
+    display_name: ClassVar[str] = "My Model"
+    sidebar_icon: ClassVar[str] = "icon-name"
+    table_view_fields: ClassVar[List[str]] = ["name", "parent"]
+    detail_page_fields: ClassVar[List[str]] = ["name", "description", "parent"]
+    field_groups: ClassVar[dict[str, List[str]]] = {
+        "Basic Info": ["name", "parent"],
+        "Details": ["description"]
+    }
+
+    def __str__(self):
+        return self.name
+```
+
+Remember:
+- Write clear, technical responses with precise examples
+- Use FastHTML's built-in features wherever possible
+- Prioritize readability and maintainability
+- Structure routes and components in a modular way
+- Use MonsterUI components consistently
+- Follow security best practices
+- Test thoroughly 
