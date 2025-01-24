@@ -64,14 +64,197 @@ FastHTML Boilerplate Creator is a powerful tool that allows users to quickly gen
 
 🌐 The application will be available at `http://localhost:5001`.
 
-## 📚 Documentation
+## 🔄 Automatic Route Collection
 
-For more detailed information about the project, please refer to the following documentation:
+The template features an automatic route collection system that scans the modules for `rt` APIRouters and registers all routes automatically. Here's how it works:
 
-- 📐 [Design Documentation](docs/design.md)
-- 📖 [User Guide](docs/user_guide.md)
-- 💻 [Developer Guide](docs/developer_guide.md)
-- 🔌 [API Reference](docs/api_reference.md)
+1. Create a new page in the under your module `src/modules/your_module` directory:
+```python
+# app/src/modules/hello/hello.py
+from fasthtml.common import *
+from fasthtml.core import APIRouter
+
+rt = APIRouter()
+
+@rt("/hello")
+def get(request):
+    return "Hello, World!"
+```
+
+2. The route collector will automatically find and register this route - no manual registration needed!
+
+## 🗄️ Database System
+
+The template includes a database system built on SQLModel with a custom BaseTable class.
+
+### 📝 Creating Models
+
+Create new models by extending the BaseTable class:
+
+```python
+from sqlmodel import Field
+from modules.shared.models import BaseTable
+
+class Product(BaseTable, table=True):
+    name: str = Field(nullable=False)
+    price: float = Field(nullable=False)
+    description: str = Field(default="")
+```
+
+### 💾 Database Operations
+
+The BaseTable class provides several convenient methods:
+
+```python
+# Create/Update
+product = Product(name="Widget", price=9.99)
+product.save()
+
+# Query
+all_products = Product.all()
+specific_product = Product.get(product_id)
+
+# Update
+Product.update(product_id, {"price": 19.99})
+
+# Delete
+Product.delete(product_id)
+```
+
+### 🔄 Database Migrations
+
+The template uses Alembic for database migrations. If you're using SQLite, make sure you specify absolute database DATABSE_URL in your .env file.
+
+1. After creating or modifying models, generate a migration:
+```bash
+alembic revision --autogenerate -m "Add product table"
+```
+or
+```bash
+app migrations
+```
+
+
+2. Apply the migration:
+```bash
+alembic upgrade head
+```
+or
+```bash
+app migrate
+```
+
+## 🔐 Authentication System
+
+The template includes a complete authentication system with the following features:
+
+- 👤 User registration and login
+- 🔑 Password reset functionality 
+- 🌐 OAuth support - under development 🚧
+- 📱 OTP (One-Time Password) support - emails are sent using Resend
+- 🔒 Session management
+
+## 🎛️ Admin Dashboard
+
+The template includes an automatic admin dashboard that is dynamically generated based on your models. Any model that inherits from `BaseTable` in `models.py` will automatically get:
+
+- 📊 Auto-generated CRUD interface
+- 🔍 Search and filtering capabilities
+- 📝 Form generation based on model fields
+- 🎨 Customizable display options through class variables:
+  ```python
+  class YourModel(BaseTable):
+      display_name: ClassVar[str] = "Your Model Name"
+      sidebar_icon: ClassVar[str] = "table"
+      table_view_fields: ClassVar[List[str]] = ["field1", "field2"]
+      detail_page_fields: ClassVar[List[str]] = ["field1", "field2", "field3"]
+      field_groups: ClassVar[Dict[str, List[str]]] = {
+          "Group 1": ["field1", "field2"],
+          "Group 2": ["field3"]
+      }
+  ```
+
+
+## 🎨 Template System
+
+The template system provides a flexible way to structure your application's pages with built-in permission handling. It offers two main types of templates:
+
+### 🌐 Public Pages
+```python
+@page_template(title="Your Page Title")
+def your_public_page(request):
+    return YourContent()
+```
+
+### 🔐 Protected App Pages
+```python
+@app_template(title="Dashboard", requieres="admin")
+def your_protected_page(request):
+    return YourContent()
+```
+
+The template system automatically:
+- 🏗️ Handles layout structure (navbar, sidebar, content areas)
+- 🔒 Manages permission checks
+- 🔄 Supports HTMX partial rendering
+- 📱 Provides responsive design
+
+### 🔑 Permission System Integration
+
+The permission system is deeply integrated with both models and templates:
+
+1. **Role-Based Access Control**:
+```python
+class User(BaseTable):
+    role: str = Field(foreign_key="role.name")
+    
+    @property
+    def priviledges(self) -> list[str]:
+        return RolePriviledge.query(
+            search_value=self.role,
+            fields=["priviledge_name"]
+        )
+```
+
+2. **Permission Decorators**:
+```python
+@app_template(requieres="admin")  # Only users with 'admin' privilege can access
+def admin_page(request):
+    return AdminContent()
+```
+
+3. **Component-Level Permissions**:
+in this example `SidebarGroup` will requiere `admin` priviledge
+```python
+from modules.shared.validators import priviledged_component
+# Show content only if user has required privilege
+def SideBar(request):
+   return Div(
+   # ...
+      priviledged_component(
+         SidebarGroup("Admin", tables, "folder-dot"),
+         request,
+         priviledge="admin",
+      )
+   # ...
+   )
+```
+
+The system uses a hierarchical approach:
+- 👥 Users have Roles
+- 🔑 Roles have Privileges
+- 🚪 Pages/Components require specific Privileges
+- 🔒 Models define CRUD Privileges
+
+## Development Commands
+
+The project includes it's own mini CLI with various helpful commands:
+
+### Basic Commands
+
+- `app run` - Start the FastHTML development server
+- `app migrations` - Create DB migrations
+- `app migrate` - Migrates changes to db DB
 
 ## 🤝 Contributing
 
