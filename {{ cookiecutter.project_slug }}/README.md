@@ -1,4 +1,4 @@
-# 🚀 FastHTML SaaS Boilerplate Creator
+# 🚀 FastHTML Boilerplate Creator
 
 FastHTML Boilerplate Creator is a powerful tool that allows users to quickly generate customized SaaS boilerplate projects using FastHTML. This service streamlines the process of setting up a new application by providing a user-friendly interface to configure various aspects of the project.
 
@@ -16,7 +16,7 @@ FastHTML Boilerplate Creator is a powerful tool that allows users to quickly gen
 1. First, create your project using cookiecutter:
    ```bash
    pip install cookiecutter
-   cookiecutter gh:ndendic/cc-fastapp
+   cookiecutter gh:ndendic/FastAppTemplate
    ```
 
 2. We recommend using `uv` for faster Python package management. Install it if you haven't already:
@@ -255,6 +255,7 @@ The project includes it's own mini CLI with various helpful commands:
 - `app run` - Start the FastHTML development server
 - `app migrations` - Create DB migrations
 - `app migrate` - Migrates changes to db DB
+- `app module <module_name>` - creates new module with boilerplate code inside `src/modules`
 
 ## 🤝 Contributing
 

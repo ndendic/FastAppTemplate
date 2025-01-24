@@ -255,6 +255,7 @@ The project includes it's own mini CLI with various helpful commands:
 - `app run` - Start the FastHTML development server
 - `app migrations` - Create DB migrations
 - `app migrate` - Migrates changes to db DB
+- `app module <module_name>` - creates new module with boilerplate code inside `src/modules`
 
 ## 🤝 Contributing
 
