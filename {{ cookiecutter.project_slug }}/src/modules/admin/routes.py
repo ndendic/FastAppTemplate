@@ -13,7 +13,7 @@ from config import Settings
 config = Settings()
 
 def InfoCard(title, value, change):
-    return Div(Card(Div(H3(value), P(change, cls=TextFont.muted_sm)), header=H4(title)))
+    return Div(Card(Div(H3(value), P(change, cls=TextPresets.muted_sm)), header=H4(title)))
 
 
 rev = InfoCard("Total Revenue", "$45,231.89", "+20.1% from last month")
@@ -29,7 +29,7 @@ def AvatarItem(name, email, amount):
     return Div(cls="flex items-center")(
         DiceBearAvatar(name, 9, 9),
         Div(cls="ml-4 space-y-1")(
-            P(name, cls=TextFont.bold_sm), P(email, cls=TextFont.muted_sm)
+            P(name, cls=TextPresets.bold_sm), P(email, cls=TextPresets.muted_sm)
         ),
         Div(amount, cls="ml-auto font-medium"),
     )
@@ -49,7 +49,7 @@ recent_sales = Card(
         ]
     ),
     header=Div(
-        H3("Recent Sales"), P("You made 265 sales this month.", cls=TextFont.muted_sm)
+        H3("Recent Sales"), P("You made 265 sales this month.", cls=TextPresets.muted_sm)
     ),
     cls="col-span-3",
 )

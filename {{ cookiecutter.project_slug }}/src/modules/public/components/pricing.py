@@ -27,7 +27,7 @@ def PricingTiers(tiers: list[dict]):
                     H2(tier["name"], cls="font-bold"),
                     P(
                         tier["description"],
-                        cls=TextFont.muted_sm + " sm:text-lg",
+                        cls=TextPresets.muted_sm + " sm:text-lg",
                     ),
                     cls="space-y-1",
                 ),
@@ -96,7 +96,7 @@ def ComparisonSection():
                 ),
                 P(
                     "Detailed breakdown of what's included in each plan",
-                    cls=TextFont.muted_lg + " mt-6",
+                    cls=TextPresets.muted_lg + " mt-6",
                 ),
             ),
             Table(

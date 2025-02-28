@@ -14,7 +14,7 @@ def page_heading(model):
             H2(model.display_name),
             P(
                 f"Here's a list of your records in {model.display_name}",
-                cls=TextFont.muted_sm,
+                cls=TextPresets.muted_sm,
             ),
         ),
     )
@@ -39,7 +39,7 @@ def table_controls(model, request):
         ),
         Button(
             f"Create {model.display_name}",
-            cls=(ButtonT.primary, TextFont.bold_sm),
+            cls=(ButtonT.primary, TextPresets.bold_sm),
             hx_get=f"/table/{model.__name__.lower()}/new",
             hx_target="#RecordData",
             hx_swap="outerHTML",

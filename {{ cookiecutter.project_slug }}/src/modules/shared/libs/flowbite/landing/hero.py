@@ -11,7 +11,7 @@ def hero():
                     ),
                     P(
                         "Launch your project in minutes, not months. Everything you need to start building your next great idea.",
-                        cls=TextFont.muted_lg + " mt-6",
+                        cls=TextPresets.muted_lg + " mt-6",
                     ),
                     Form(
                         Div(

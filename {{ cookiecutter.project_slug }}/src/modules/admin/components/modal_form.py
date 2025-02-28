@@ -91,7 +91,7 @@ class ModalForm:
             H2(f"{'Create' if is_new else 'Edit'} {self.rec.display_name}"),
             P(
                 f"Fill out the information below to {'create a new' if is_new else 'edit the'} record",
-                cls=TextFont.muted_sm,
+                cls=TextPresets.muted_sm,
             ),
             Br(),
             Form(cls="space-y-6")(

@@ -45,7 +45,7 @@ def FeaturesHeading():
             ),
             P(
                 "Here at {{ cookiecutter.project_name }} we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.",
-                cls=TextFont.muted_lg,
+                cls=TextPresets.muted_lg,
             ),
             cls="max-w-screen-md mb-8 lg:mb-16",
         ),
@@ -63,7 +63,7 @@ def FeaturesCard(icon, title, description):
         ),
         P(
             description,
-            cls=TextFont.muted_lg + " mt-1",
+            cls=TextPresets.muted_lg + " mt-1",
         ),
         cls="bg-popover border border-gray-900 dark:border-gray-400 space-y-2 rounded-lg p-4",
     )

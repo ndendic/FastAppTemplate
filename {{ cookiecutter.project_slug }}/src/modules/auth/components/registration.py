@@ -26,7 +26,7 @@ def registration_page():
             Div(cls="space-y-6 w-[350px]")(
                 Div(cls="flex flex-col space-y-2 text-center")(
                     H3("Create an account"),
-                    P(cls=TextFont.muted_sm)(
+                    P(cls=TextPresets.muted_sm)(
                         "Pick your favorite way to authenticate with us"
                     ),
                 ),
@@ -62,7 +62,7 @@ def registration_page():
                         ),
                         href="/auth/oauth/google",
                     ),
-                    DividerSplit("Or continue with", cls=TextFont.muted_sm),
+                    DividerSplit("Or continue with", cls=TextPresets.muted_sm),
                     Input(
                         placeholder="name@example.com",
                         name="email",
@@ -83,7 +83,7 @@ def registration_page():
                         # disabled=True,
                     ),
                 ),
-                P(cls=(TextFont.muted_sm, "text-center"))(
+                P(cls=(TextPresets.muted_sm, "text-center"))(
                     "By clicking continue, you agree to our ",
                     A(
                         cls="underline underline-offset-4 hover:text-primary",

@@ -20,7 +20,7 @@ hotkeys = [
 def NavSpacedLi(t, s=None, href="#", is_content=True):
     return Li(
         A(
-            DivFullySpaced(P(t), P(s, cls=TextFont.muted_sm)),
+            DivFullySpaced(P(t), P(s, cls=TextPresets.muted_sm)),
             href=href + "#",
             hx_boost="true" if is_content else "false",
             hx_target="#content",

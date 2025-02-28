@@ -28,7 +28,7 @@ def reset_pass_page():
             Div(cls=f"space-y-6 w-[350px]")(
                 Div(cls="flex flex-col space-y-2 text-center")(
                     H3("Create New Password"),
-                    P(cls=TextFont.muted_sm)(
+                    P(cls=TextPresets.muted_sm)(
                         "Your new password must be different from previously used passwords"
                     ),
                 ),
@@ -51,7 +51,7 @@ def reset_pass_page():
                         cls=(ButtonT.primary, "w-full"),
                     ),
                     DividerLine(),
-                    P(cls=(TextFont.muted_sm, "text-center"))(
+                    P(cls=(TextPresets.muted_sm, "text-center"))(
                         "Remember your password? ",
                         A(
                             cls="underline underline-offset-4 hover:text-primary",

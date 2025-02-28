@@ -80,7 +80,7 @@
     Members: lead, meta, italic, sm, default, lg, light, normal, bold, lighter, bolder, capitalize, uppercase, lowercase, decoration_none, muted, primary, secondary, success, warning, danger, left, right, center, justify, top, middle, bottom, baseline, truncate, break_, nowrap
 
 
-- `class TextFont(Enum)`
+- `class TextPresets(Enum)`
     Combinations of TextT that are particularly useful
     Members: muted_sm, muted_lg, bold_sm, md_weight_sm
 
@@ -466,7 +466,7 @@ def generate_chart(num_points=30):
     
     return fig.to_html(include_plotlyjs=True, full_html=False, config={'displayModeBar': False})
 
-def InfoCard(title, value, change): return Card(H3(value),P(change, cls=TextFont.muted_sm), header = H4(title))
+def InfoCard(title, value, change): return Card(H3(value),P(change, cls=TextPresets.muted_sm), header = H4(title))
 
 rev = InfoCard("Total Revenue", "$45,231.89", "+20.1% from last month")
 sub = InfoCard("Subscriptions", "+2350", "+180.1% from last month")
@@ -484,8 +484,8 @@ def AvatarItem(name, email, amount):
     return DivFullySpaced(
         DivLAligned(
             DiceBearAvatar(name, 9,9),
-            Div(P(name, cls=TextFont.bold_sm), 
-                P(email, cls=TextFont.muted_sm))),
+            Div(P(name, cls=TextPresets.bold_sm), 
+                P(email, cls=TextPresets.muted_sm))),
         Div(amount, cls="ml-auto font-medium"))
 
 recent_sales = Card(
@@ -496,7 +496,7 @@ recent_sales = Card(
             ("Isabella Nguyen", "isabella.nguyen@email.com", "+$299.00"),
             ("William Kim",     "will@email.com",            "+$99.00"),
             ("Sofia Davis",     "sofia.davis@email.com",     "+$39.00"))]),
-    header=Div(H3("Recent Sales"),P("You made 265 sales this month.", cls=TextFont.muted_sm)),
+    header=Div(H3("Recent Sales"),P("You made 265 sales this month.", cls=TextPresets.muted_sm)),
     cls='col-span-3')
 
 teams = [["Alicia Koch"],['Acme Inc', 'Monster Inc.'],['Create a Team']]
@@ -511,7 +511,7 @@ team_dropdown = UkSelect(
 
 hotkeys = [('Profile','⇧⌘P'),('Billing','⌘B'),('Settings','⌘S'),('New Team', ''), ('Logout', '')]
 
-def NavSpacedLi(t,s): return NavCloseLi(A(DivFullySpaced(P(t),P(s,cls=TextFont.muted_sm))))
+def NavSpacedLi(t,s): return NavCloseLi(A(DivFullySpaced(P(t),P(s,cls=TextPresets.muted_sm))))
 
 avatar_dropdown = Div(
       DiceBearAvatar('Alicia Koch',8,8),
@@ -546,7 +546,7 @@ from monsterui.all import *
  
 app, rt = fast_app(hdrs=Theme.blue.headers())
 
-def MusicLi(t,hk=''): return Li(A(DivFullySpaced(t,P(hk,cls=TextFont.muted_sm))))
+def MusicLi(t,hk=''): return Li(A(DivFullySpaced(t,P(hk,cls=TextPresets.muted_sm))))
 
 music_items = [("About Music", ""   ),
                ("Preferences", "⌘"  ),
@@ -608,11 +608,11 @@ made_for_you_albums = [("Like a Feline",         "Catdonna"),
                        ("Meow Me Maybe",         "Carly Rae Purrsen"),]
 
 music_content = (Div(H3("Listen Now"), cls="mt-6 space-y-1"),
-                    P("Top picks for you. Updated daily.",cls=TextFont.muted_sm),
+                    P("Top picks for you. Updated daily.",cls=TextPresets.muted_sm),
                     DividerLine(),
                     Grid(*[Album(t,a) for t,a in listen_now_albums], cls='gap-8'),
                     Div(H3("Made for You"), cls="mt-6 space-y-1"),
-                    P("Your personal playlists. Updated daily.", cls=TextFont.muted_sm),
+                    P("Your personal playlists. Updated daily.", cls=TextPresets.muted_sm),
                     DividerLine(),
                     Grid(*[Album(t,a) for t,a in made_for_you_albums], cols_xl=6))
 
@@ -627,12 +627,12 @@ def podcast_tab():
     return Div(
         Div(cls='space-y-3 mt-6')(
             H3("New Episodes"),
-            P("Your favorite podcasts. Updated daily.", cls=TextFont.muted_sm)),
+            P("Your favorite podcasts. Updated daily.", cls=TextPresets.muted_sm)),
         Div(cls="uk-placeholder flex h-[450px] items-center justify-center rounded-md",uk_placeholder=True)(
             DivVStacked(cls="space-y-6")(
                 UkIcon("microphone", 3),
                 H4("No episodes added"),
-                P("You have not added any podcasts. Add one below.", cls=TextFont.muted_sm),
+                P("You have not added any podcasts. Add one below.", cls=TextPresets.muted_sm),
                 Button("Add Podcast", cls=ButtonT.primary))))
 
 discoved_data =  [("play-circle","Listen Now"), ("binoculars", "Browse"), ("rss","Radio")]
@@ -675,7 +675,7 @@ preset_options = ["Grammatical Standard English", "Summarize for a 2nd grader",
 def playground_navbar():
     save_modal = Modal(
         ModalTitle("Save preset"),
-        P("This will save the current playground state as a preset which you can access later or share with others.",cls=("mt-1.5", TextFont.muted_sm)),
+        P("This will save the current playground state as a preset which you can access later or share with others.",cls=("mt-1.5", TextPresets.muted_sm)),
         LabelInput("Name",        id="name"), 
         LabelInput("Description", id="description"),
         ModalCloseButton("Save", cls=ButtonT.primary),
@@ -683,7 +683,7 @@ def playground_navbar():
     
     share_dd = Div(cls="space-y-6 p-4")(
         H3("Share preset"),
-        P("Anyone who has this link and an OpenAI account will be able to view this.", cls=TextFont.muted_sm),
+        P("Anyone who has this link and an OpenAI account will be able to view this.", cls=TextPresets.muted_sm),
         Div(Input(value="https://platform.openai.com/playground/p/7bbKYQvsVkNmVb8NGcdUOLae?model=text-davinci-003", readonly=True),
             Button(UkIcon('copy'), cls=(ButtonT.primary, "uk-drop-close",'mt-4'))))
 
@@ -737,7 +737,7 @@ import json
 
 app, rt = fast_app(hdrs=Theme.blue.headers())
 
-def LAlignedCheckTxt(txt): return DivLAligned(UkIcon(icon='check'), P(txt, cls=TextFont.muted_sm))
+def LAlignedCheckTxt(txt): return DivLAligned(UkIcon(icon='check'), P(txt, cls=TextPresets.muted_sm))
 
 with open('data/status_list.json', 'r') as f: data     = json.load(f)
 with open('data/statuses.json',    'r') as f: statuses = json.load(f)
@@ -755,7 +755,7 @@ priority_dd = [{'priority': "low", 'count': 36 }, {'priority': "medium", 'count'
 
 status_dd = [{'status': "backlog", 'count': 21 },{'status': "todo", 'count': 21 },{'status': "progress", 'count': 20 },{'status': "done",'count': 19 },{'status': "cancelled", 'count': 19 }]
 
-def create_hotkey_li(hotkey): return NavCloseLi(A(DivFullySpaced(hotkey[0], Span(hotkey[1], cls=TextFont.muted_sm))))
+def create_hotkey_li(hotkey): return NavCloseLi(A(DivFullySpaced(hotkey[0], Span(hotkey[1], cls=TextPresets.muted_sm))))
 
 hotkeys_a = (('Profile','⇧⌘P'),('Billing','⌘B'),('Settings','⌘S'),('New Team',''))
 hotkeys_b = (('Logout',''), )
@@ -771,7 +771,7 @@ def CreateTaskModal():
     return Modal(
         Div(cls='p-6')(
             ModalTitle('Create Task'),
-            P('Fill out the information below to create a new task', cls=TextFont.muted_sm),
+            P('Fill out the information below to create a new task', cls=TextPresets.muted_sm),
             Br(),
             Form(cls='space-y-6')(
                 Grid(Div(Select(*map(Option,('Documentation', 'Bug', 'Feature')), label='Task Type', id='task_type')),
@@ -786,7 +786,7 @@ def CreateTaskModal():
 
 page_heading = DivFullySpaced(cls='space-y-2')(
             Div(cls='space-y-2')(
-                H2('Welcome back!'),P("Here's a list of your tasks for this month!", cls=TextFont.muted_sm)),
+                H2('Welcome back!'),P("Here's a list of your tasks for this month!", cls=TextPresets.muted_sm)),
             Div(DiceBearAvatar("sveltcult",8,8),avatar_opts))
 
 table_controls =(Input(cls='w-[250px]',placeholder='Filter task'),
@@ -796,14 +796,14 @@ table_controls =(Input(cls='w-[250px]',placeholder='Filter task'),
      DropDownNavContainer(map(NavCloseLi,[A(DivFullySpaced(LAlignedCheckTxt(a['priority']), a['count']),cls=TextT.capitalize) for a in priority_dd])),
      Button("View"),
      DropDownNavContainer(map(NavCloseLi,[A(LAlignedCheckTxt(o)) for o in ['Title','Status','Priority']])),
-     Button('Create Task',cls=(ButtonT.primary, TextFont.bold_sm), uk_toggle="target: #TaskForm"))
+     Button('Create Task',cls=(ButtonT.primary, TextPresets.bold_sm), uk_toggle="target: #TaskForm"))
 
 def task_dropdown():
     return Div(Button(UkIcon('ellipsis')),
                DropDownNavContainer(
                    map(NavCloseLi,[
                        *map(A,('Edit', 'Make a copy', 'Favorite')),
-                        A(DivFullySpaced(*[P(o, cls=TextFont.muted_sm) for o in ('Delete', '⌘⌫')]))])))
+                        A(DivFullySpaced(*[P(o, cls=TextPresets.muted_sm) for o in ('Delete', '⌘⌫')]))])))
 def header_render(col):
     match col:
         case "Done":    return Th(CheckboxX(), shrink=True)
@@ -835,7 +835,7 @@ tasks_table = Div(cls='mt-4')(
 def footer():
     total_pages = (len(data) + page_size - 1) // page_size
     return DivFullySpaced(
-        Div('1 of 100 row(s) selected.', cls=TextFont.muted_sm),
+        Div('1 of 100 row(s) selected.', cls=TextPresets.muted_sm),
         DivLAligned(
             DivCentered(f'Page {current_page + 1} of {total_pages}', cls=TextT.sm),
             DivLAligned(*[UkIconLink(icon=i,  button=True) for i in ('chevrons-left', 'chevron-left', 'chevron-right', 'chevrons-right')])))
@@ -858,10 +858,10 @@ app, rt = fast_app(hdrs=Theme.blue.headers())
 
 CreateAccount = Card(
     Grid(Button(DivLAligned(UkIcon('github'),Div('Github'))),Button('Google')),
-            DividerSplit("OR CONTINUE WITH", text_cls=TextFont.muted_sm),
+            DividerSplit("OR CONTINUE WITH", text_cls=TextPresets.muted_sm),
             LabelInput('Email',    id='email',   placeholder='m@example.com'),
             LabelInput('Password', id='password',placeholder='Password', type='Password'),
-            header=(H3('Create an Account'),P(cls=TextFont.muted_sm)('Enter your email below to create your account')),
+            header=(H3('Create an Account'),P(cls=TextPresets.muted_sm)('Enter your email below to create your account')),
             footer=Button(cls=(ButtonT.primary,'w-full'))('Create Account'))
 
 Card1Svg = Svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke_linecap="round", stroke_linejoin="round", stroke_width="2", cls="h-6 w-6 mr-1")(Rect(width="20", height="14", x="2", y="5", rx="2"),Path(d="M2 10h20"))
@@ -877,7 +877,7 @@ PaymentMethod = Card(
          Grid(LabelUkSelect(*Options(*calendar.month_name[1:],selected_idx=0),label='Expires',id='expire_month'),
               LabelUkSelect(*Options(*range(2024,2030),selected_idx=0),       label='Year',   id='expire_year'),
               LabelInput('CVV', id='cvv',placeholder='CVV', cls='mt-0'))),
-        header=(H3('Payment Method'),P(cls=TextFont.muted_sm)('Add a new payment method to your account.')))
+        header=(H3('Payment Method'),P(cls=TextPresets.muted_sm)('Add a new payment method to your account.')))
 
 area_opts = ('Team','Billing','Account','Deployment','Support')
 severity_opts = ('Severity 1 (Highest)', 'Severity 2', 'Severity 3', 'Severity 4 (Lowest)')
@@ -888,21 +888,21 @@ ReportIssue = Card(
     LabelTextArea( label='Description', id='description',placeholder='Please include all information relevant to your issue'),
     Div(FormLabel('Tags', fr='#tags'),
         Uk_input_tag(name="Tags",state="danger", value="Spam,Invalid", uk_cloak=True, id='tags')),
-    header=(H3('Report Issue'),P(cls=TextFont.muted_sm)('What area are you having problems with?')),
+    header=(H3('Report Issue'),P(cls=TextPresets.muted_sm)('What area are you having problems with?')),
     footer = DivFullySpaced(Button('Cancel'), Button(cls=ButtonT.primary)('Submit')))
 
 monster_desc ="Python-first beautifully designed components because you deserve to focus on features that matter and your app deserves to be beautiful from day one."
 MonsterUI = Card(H4("Monster UI"),
-              P(monster_desc, cls=TextFont.muted_sm),
+              P(monster_desc, cls=TextPresets.muted_sm),
               DivLAligned(
                     Div("Python"),
                     DivLAligned(UkIcon('star'),Div("20k"), cls='space-x-1'),
                     Div(datetime.now().strftime("%B %d, %Y")),
-                    cls=('space-x-4',TextFont.muted_sm)))
+                    cls=('space-x-4',TextPresets.muted_sm)))
 
 def CookieTableRow(heading, description, active=False):
     return Tr(Td(H5(heading)),
-              Td(P(description, cls=TextFont.muted_sm)),
+              Td(P(description, cls=TextPresets.muted_sm)),
               Td(Switch(checked=active)))
 
 CookieSettings = Card(
@@ -910,7 +910,7 @@ CookieSettings = Card(
         CookieTableRow('Strictly Necessary', 'These cookies are essential in order to use the website and use its features.', True),
         CookieTableRow('Functional Cookies', 'These cookies allow the website to provide personalized functionality.'),
         CookieTableRow('Performance Cookies', 'These cookies help to improve the performance of the website.'))),
-    header=(H4('Cookie Settings'),P(cls=(TextFont.muted_sm, 'mt-1.5'))('Manage your cookie settings here.')),
+    header=(H4('Cookie Settings'),P(cls=(TextPresets.muted_sm, 'mt-1.5'))('Manage your cookie settings here.')),
     footer=Button('Save Preferences', cls=(ButtonT.primary, 'w-full')))
 
 team_members = [("Sofia Davis", "m@example.com", "Owner"),("Jackson Lee", "p@example.com", "Member"),]
@@ -918,8 +918,8 @@ def TeamMemberRow(name, email, role):
     return DivFullySpaced(
         DivLAligned(
             DiceBearAvatar(name, 10,10),
-            Div(P(name, cls=TextFont.md_weight_sm),
-                P(email, cls=TextFont.muted_sm))),
+            Div(P(name, cls=TextPresets.md_weight_sm),
+                P(email, cls=TextPresets.muted_sm))),
         Button(role, UkIcon('chevron-down', cls='ml-4')),
         DropDownNavContainer(map(NavCloseLi, [
             A(Div('Viewer',    NavSubtitle('Can view and comment.'))),
@@ -928,7 +928,7 @@ def TeamMemberRow(name, email, role):
             A(Div('Owner',     NavSubtitle('Admin-level access to all resources.')))])))
 
 TeamMembers = Card(*[TeamMemberRow(*member) for member in team_members],
-        header = (H4('Team Members'),Div('Invite your team members to collaborate.', cls=('mt-1.5', TextFont.muted_sm))),)
+        header = (H4('Team Members'),Div('Invite your team members to collaborate.', cls=('mt-1.5', TextPresets.muted_sm))),)
 
 access_roles = ("Read and write access", "Read-only access")
 team_members = [("Olivia Martin", "m@example.com", "Read and write access"),
@@ -938,16 +938,16 @@ team_members = [("Olivia Martin", "m@example.com", "Read and write access"),
 def TeamMemberRow(name, email, role):
     return DivFullySpaced(
         DivLAligned(DiceBearAvatar(name, 10,10),
-                    Div(P(name, cls=TextFont.md_weight_sm),
-                        P(email, cls=TextFont.muted_sm))),
+                    Div(P(name, cls=TextPresets.md_weight_sm),
+                        P(email, cls=TextPresets.muted_sm))),
         UkSelect(*Options(*access_roles, selected_idx=access_roles.index(role))))
 
 ShareDocument = Card(
     DivLAligned(Input(value='http://example.com/link/to/document'),Button('Copy link', cls='whitespace-nowrap')),
     Divider(),
-    H4('People with access', cls=TextFont.bold_sm),
+    H4('People with access', cls=TextPresets.bold_sm),
     *[TeamMemberRow(*member) for member in team_members],
-    header = (H4('Share this document'),Div('Anyone with the link can view this document.', cls=('mt-1.5',TextFont.muted_sm))))
+    header = (H4('Share this document'),Div('Anyone with the link can view this document.', cls=('mt-1.5',TextPresets.muted_sm))))
 
 DateCard = Card(Button('Jan 20, 2024 - Feb 09, 2024'))
 
@@ -956,13 +956,13 @@ section_content =(('bell','Everything',"Email digest, mentions & all activity.")
                   ('ban', "Ignoring","Turn of all notifications"))
 
 def NotificationRow(icon, name, desc):
-    return Li(cls='-mx-1')(A(DivLAligned(UkIcon(icon),Div(P(name),P(desc, cls=TextFont.muted_sm)))))
+    return Li(cls='-mx-1')(A(DivLAligned(UkIcon(icon),Div(P(name),P(desc, cls=TextPresets.muted_sm)))))
 
 Notifications = Card(
     NavContainer(
         *[NotificationRow(*row) for row in section_content],
         cls=NavT.secondary),
-    header = (H4('Notification'),Div('Choose what you want to be notified about.', cls=('mt-1.5', TextFont.muted_sm))),
+    header = (H4('Notification'),Div('Choose what you want to be notified about.', cls=('mt-1.5', TextPresets.muted_sm))),
     body_cls='pt-0')
 
 @rt
@@ -991,7 +991,7 @@ sidebar_group2 = (('globe','Social','972'),('info','Updates','342'),('messages-s
     ('shopping-cart','Shopping','8'),('shopping-bag','Promotions','21'),)
 
 def MailSbLi(icon, title, cnt): 
-    return Li(A(DivLAligned(Span(UkIcon(icon)),Span(title),P(cnt,cls=TextFont.muted_sm))))
+    return Li(A(DivLAligned(Span(UkIcon(icon)),Span(title),P(cnt,cls=TextPresets.muted_sm))))
 
 sidebar = NavContainer(
     NavHeaderLi(H3("Email")),
@@ -1017,8 +1017,8 @@ def MailItem(mail):
                 Div(mail['name'], cls='font-semibold'),
                     Span(cls='flex h-2 w-2 rounded-full bg-blue-600') if not mail['read'] else ''),
                 Div(format_date(mail['date']), cls='text-xs')),
-            A(mail['subject'], cls=TextFont.bold_sm, href=f"#mail-{mail['id']}"),
-            Div(mail['text'][:100] + '...', cls=TextFont.muted_sm),
+            A(mail['subject'], cls=TextPresets.bold_sm, href=f"#mail-{mail['id']}"),
+            Div(mail['text'][:100] + '...', cls=TextPresets.muted_sm),
             DivLAligned(
                 *[A(label, cls=f"uk-label relative z-10 {'uk-label-primary' if label == 'work' else ''}", href='#')
                   for label in mail['labels']]))
@@ -1067,7 +1067,7 @@ def MailDetailView(mail):
                         Div(mail['subject'], cls='text-xs'),
                         DivLAligned('Reply-To:', mail['email'], cls=TextT.sm)),
                     cls='gap-4 text-sm'),
-                Div(format_date(mail['date']), cls=TextFont.muted_sm),
+                Div(format_date(mail['date']), cls=TextPresets.muted_sm),
                 cls='p-4'),
             Div(cls='flex-1 space-y-4 border-t border-border p-4 text-sm')(P(mail['text']))),
         Div(cls='flex-none space-y-4 border-t border-border p-4')(
@@ -1096,12 +1096,12 @@ from fasthtml.svg import *
 app, rt = fast_app(hdrs=Theme.blue.headers())
 
 def HelpText(c):
-    return P(c,cls=TextFont.muted_sm)
+    return P(c,cls=TextPresets.muted_sm)
 
 def heading():
     return Div(cls="space-y-5")(
             H2("Settings"),
-            P("Manage your account settings and set e-mail preferences.", cls=TextFont.muted_lg),
+            P("Manage your account settings and set e-mail preferences.", cls=TextPresets.muted_lg),
             DividerSplit())
 
 sidebar_items = ["Profile", "Account", "Appearance", "Notifications", "Display"]
@@ -1197,7 +1197,7 @@ def notifications_form():
     def NotificationCard(item):
         return Card(
             Div(cls="space-y-0.5")(
-                FormLabel(item['title'], cls=TextFont.bold_sm),
+                FormLabel(item['title'], cls=TextPresets.bold_sm),
                 HelpText(item['description'])),
         )
     content = Div(
@@ -1255,18 +1255,18 @@ def index():
             Container(
                 DivVStacked(
                     H3("Create an account"),
-                    P("Enter your email below to create your account", cls=TextFont.muted_sm)),
+                    P("Enter your email below to create your account", cls=TextPresets.muted_sm)),
                 Form(
                     Input(placeholder="name@example.com"),
                     Button(Span(cls="mr-2", uk_spinner="ratio: 0.54"), "Sign in with Email", cls=(ButtonT.primary, "w-full"), disabled=True),
-                    DividerSplit("Or continue with",cls=TextFont.muted_sm),
+                    DividerSplit("Or continue with",cls=TextPresets.muted_sm),
                     Button(UkIcon('github',cls='mr-2'), "Github", cls=(ButtonT.default, "w-full")),
                     cls='space-y-6'),
                 P(
                     "By clicking continue, you agree to our ",
                     A(cls=AT.muted, href="#demo")("Terms of Service")," and ",
                     A(cls=AT.muted, href="#demo")("Privacy Policy"),".",
-                    cls=(TextFont.muted_sm,"text-center")),
+                    cls=(TextPresets.muted_sm,"text-center")),
                 cls="space-y-6")))
     
     return Title("Auth Example"),Grid(left,right,cols=2, gap=0,cls='h-screen')

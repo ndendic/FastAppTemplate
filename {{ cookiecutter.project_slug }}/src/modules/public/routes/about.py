@@ -19,7 +19,7 @@ def CompanySection():
                 ),
                 P(
                     "We're on a mission to help developers build better applications faster.",
-                    cls=TextFont.muted_lg + " mt-6",
+                    cls=TextPresets.muted_lg + " mt-6",
                 ),
             ),
             Div(
@@ -28,12 +28,12 @@ def CompanySection():
                 P(
                     "Founded in 2024, we've been helping developers and companies streamline their development process. "
                     + "Our boilerplate is built on years of experience in building scalable applications.",
-                    cls=TextFont.muted_lg + " mb-6",
+                    cls=TextPresets.muted_lg + " mb-6",
                 ),
                 P(
                     "We believe in providing developers with the tools they need to focus on what matters most - "
                     + "building great products for their customers.",
-                    cls=TextFont.muted_lg,
+                    cls=TextPresets.muted_lg,
                 ),
             ),
         )
@@ -74,7 +74,7 @@ def TeamSection():
                 H2("Our Team", cls="text-3xl font-bold tracking-tight sm:text-4xl"),
                 P(
                     "Meet the people behind the product",
-                    cls=TextFont.muted_lg + " mt-6",
+                    cls=TextPresets.muted_lg + " mt-6",
                 ),
             ),
             Div(cls="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none")(
@@ -87,7 +87,7 @@ def TeamSection():
                             ),
                             H3(name, cls="mt-6 text-xl font-semibold text-center"),
                             P(role, cls="text-primary text-center"),
-                            P(desc, cls=TextFont.muted_sm + " mt-4 text-center"),
+                            P(desc, cls=TextPresets.muted_sm + " mt-4 text-center"),
                             cls="p-8",
                         )
                         for name, role, img, desc in team
@@ -130,7 +130,7 @@ def ValuesSection():
                 H2("Our Values", cls="text-3xl font-bold tracking-tight sm:text-4xl"),
                 P(
                     "The principles that guide everything we do",
-                    cls=TextFont.muted_lg + " mt-6",
+                    cls=TextPresets.muted_lg + " mt-6",
                 ),
             ),
             Div(cls="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none")(
@@ -139,7 +139,7 @@ def ValuesSection():
                         Card(
                             UkIcon(icon, cls="size-8 text-primary mx-auto"),
                             H3(title, cls="mt-6 text-xl font-semibold text-center"),
-                            P(desc, cls=TextFont.muted_sm + " mt-4 text-center"),
+                            P(desc, cls=TextPresets.muted_sm + " mt-4 text-center"),
                             cls="p-8",
                         )
                         for icon, title, desc in values

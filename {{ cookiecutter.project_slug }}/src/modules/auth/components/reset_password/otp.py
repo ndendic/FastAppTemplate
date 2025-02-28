@@ -28,7 +28,7 @@ def otp_page(email: str = None):
             Div(cls=f"space-y-6 w-[350px]")(
                 Div(cls="flex flex-col space-y-2 text-center")(
                     H3("Sign in with OTP"),
-                    P(cls=TextFont.muted_sm)(
+                    P(cls=TextPresets.muted_sm)(
                         "Please enter the one-time password sent to your email"
                     ),
                 ),
@@ -56,7 +56,7 @@ def otp_page(email: str = None):
                         cls=(ButtonT.primary, "w-full"),
                     ),
                     DividerLine(),
-                    P(cls=(TextFont.muted_sm, "text-center"))(
+                    P(cls=(TextPresets.muted_sm, "text-center"))(
                         "Didn't receive the code? ",
                         A(
                             "Resend OTP",

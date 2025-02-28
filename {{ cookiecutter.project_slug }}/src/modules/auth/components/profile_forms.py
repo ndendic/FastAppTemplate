@@ -35,7 +35,7 @@ def AvatarUploader(user_data):
             # Current avatar preview
             Div(cls="flex flex-col items-center gap-4")(
                 current_avatar,
-                P("Click avatar to change profile picture", cls=TextFont.muted_sm),
+                P("Click avatar to change profile picture", cls=TextPresets.muted_sm),
             ),
             # Upload form with preview
             Form(
@@ -59,7 +59,7 @@ def AvatarUploader(user_data):
 
 
 def HelpText(c):
-    return P(c, cls=TextFont.muted_sm)
+    return P(c, cls=TextPresets.muted_sm)
 
 
 def heading():
@@ -67,7 +67,7 @@ def heading():
         H2("Settings"),
         P(
             "Manage your account settings and set e-mail preferences.",
-            cls=TextFont.muted_lg,
+            cls=TextPresets.muted_lg,
         ),
         DividerSplit(),
     )
